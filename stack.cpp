@@ -1,4 +1,4 @@
-// stack.cpp: определяет точку входа для консольного приложения.
+// stack.cpp: Г®ГЇГ°ГҐГ¤ГҐГ«ГїГҐГІ ГІГ®Г·ГЄГі ГўГµГ®Г¤Г  Г¤Г«Гї ГЄГ®Г­Г±Г®Г«ГјГ­Г®ГЈГ® ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГї.
 //
 #include <stdio.h>
 #include "stdafx.h"
@@ -15,6 +15,8 @@ public:
 	size_t count() const;
 	void push(T const &);
 	T pop();
+	stack(const stack<T>&);
+	stack<T>& operator=(const stack<T>&);
 	~stack();
 private:
 	T * _array;
@@ -30,6 +32,21 @@ stack<T>::~stack() {
 	delete[] _array;
 }
 
+template <typename T>
+stack<T>::stack(const stack<T>& x) : _array_size(x._array_size), count_(x._count){
+	_array = new T[_array_size];
+	for (int i = 0; i < _count; i++) _array[i] = x._array[i];
+}
+
+template<typename T>
+stack<T>& stack<T>::operator=(const stack<T>& b){
+	if (this != &b){
+		swap(b._array_size,_array_size);
+		swap(b._count, _count);
+		swap(b._array, _array);
+		return *this;
+	}
+}
 template <typename T>
 size_t stack<T>::count() const { return _count; }
 
@@ -48,7 +65,7 @@ void stack<T>::push(T const &a) {
 			_array_size *= 2;
 		}
 		_array[_count] = a;
-		_count = _count + 1;
+		_count++;
 	}
 }
 
