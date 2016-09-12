@@ -44,8 +44,9 @@ stack<T>& stack<T>::operator=(const stack<T>& b){
 		swap(b._array_size,_array_size);
 		swap(b._count, _count);
 		swap(b._array, _array);
-		return *this;
+
 	}
+return *this;
 }
 template <typename T>
 size_t stack<T>::count() const { return _count; }
