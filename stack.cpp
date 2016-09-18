@@ -18,7 +18,7 @@ public:
   auto count() const noexcept->size_t; 
   auto push(T const & value)->void; 
   auto top() const->T&; 
-  auto pop()->void; 
+  auto pop()->T; 
   auto operator=(stack const & stck)->stack &; 
   ~stack(); 
 private: 
@@ -57,7 +57,7 @@ template<typename T>
 auto stack<T>::push(T const & value)->void { 
   if (_array == nullptr) {
 		_array = new T[1];
-		_array[0] = val;
+		_array[0] = value;
 		_count++; 
 		_array_size++;
 	}
@@ -69,7 +69,7 @@ auto stack<T>::push(T const & value)->void {
 			_array = tmp;
 
 		}
-		_array[_count] = val;
+		_array[_count] = value;
 		_count++;
 	}
 }
@@ -81,7 +81,7 @@ auto stack<T>::top() const -> T& {
 } 
 
 template <typename T> 
-auto stack<T>::pop() -> void { 
+auto stack<T>::pop() -> T { 
   if (_count == 0) throw("stack's empty"); 
   return --_count; 
 }
