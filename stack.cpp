@@ -71,9 +71,9 @@ template<typename T>
 }
 
  template <typename T>
- auto stack<T>::top() const -> const T&{
+ auto stack<T>::top() const ->  T&{
 	 if (_count == 0) throw logic_error("stack's empty");
-	 return _array[_count - 1];
+	 return _array[_count];
  }
 
 
