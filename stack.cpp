@@ -1,12 +1,8 @@
 // stack.cpp: îïðåäåëÿåò òî÷êó âõîäà äëÿ êîíñîëüíîãî ïðèëîæåíèÿ.
 //
-#include <stdio.h> 
-#include "stdafx.h" 
 #include <iostream> 
-#include <vector> 
+
 using namespace std;
-using std::size_t;
-using std::ostream;
 
 
 template <typename T>
