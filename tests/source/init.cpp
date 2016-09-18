@@ -24,11 +24,11 @@ SCENARIO("top", "[top]"){
   REQUIRE(s.pop()==2);
   REQUIRE(s.top()==3);
 }
-SCENARIO("operator=", "[op=]") {
-	stack<int> a;
-	a.push(1);
-	stack<int> b;
-	b = a;
-	REQUIRE(b.count() == a.count());
+SCENARIO("operprisv", "[operprisv]"){
+  stack<int> a;
+  a.push(1);
+  stack<int> b;
+  b=a;
+  REQUIRE(b.count()==a.count());
 }
 
