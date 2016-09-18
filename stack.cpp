@@ -80,8 +80,6 @@ template<typename T>
 template <typename T>
 auto stack<T>::pop() -> void {
 	if (_count == 0) throw("stack's empty");
-	else {
-		_count = _count - 1;
-		return _array[_count];
-	}
+		_count--;
+		return _count;
 }
