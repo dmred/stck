@@ -1,7 +1,7 @@
 // stack.cpp: îïðåäåëÿåò òî÷êó âõîäà äëÿ êîíñîëüíîãî ïðèëîæåíèÿ.
 //
 #include <iostream> 
-
+#include <memory>
 using namespace std;
 
 
