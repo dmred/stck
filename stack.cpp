@@ -37,7 +37,7 @@ template <typename T>
 } 
 
 template <typename T> 
-stack<T>::stack(stack const &stck) : _array_size(stck._array_size), count_(stck._count) { 
+stack<T>::stack(stack const &stck) : _array_size(stck._array_size), _count(stck._count) { 
   _array = new T[_array_size]; 
   for (int i = 0; i < _count; i++) _array[i] = stck._array[i]; 
 } 
