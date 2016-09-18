@@ -80,5 +80,5 @@ return _array[_count];
 template <typename T> 
 auto stack<T>::pop() -> void { 
 if (_count == 0) throw("stack's empty"); 
-return —_count; 
+return --_count; 
 }
