@@ -1,4 +1,4 @@
-// sstack.cpp: определяет точку входа для консольного приложения.
+// sstack.cpp: Г®ГЇГ°ГҐГ¤ГҐГ«ГїГҐГІ ГІГ®Г·ГЄГі ГўГµГ®Г¤Г  Г¤Г«Гї ГЄГ®Г­Г±Г®Г«ГјГ­Г®ГЈГ® ГЇГ°ГЁГ«Г®Г¦ГҐГ­ГЁГї.
 //
 
 #include "stack.h"
@@ -65,15 +65,4 @@ auto stack<T>::m_c(size_t count_m_c, size_t array_size_m_c, const T * tmp)->T* {
 	T *mass = new T[array_size_m_c];
 	copy(tmp, tmp + count_m_c, mass);
 	return mass;
-}
-int main() {
-
-	stack<int> o;
-	o.push(1);
-	o.push(2);
-	o.pop();
-	o.top();
-
-
-	system("pause");
 }
