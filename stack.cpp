@@ -25,6 +25,7 @@ private:
   T * _array; 
   size_t _array_size; 
   size_t _count; 
+  auto m_c(size_t count_m_с, size_t array_size_m_с, const T * tmp)->T*;
 }; 
 
 template <typename T> 
@@ -54,17 +55,23 @@ auto stack<T>::count() const noexcept->size_t { return _count; }
 
 template<typename T> 
 auto stack<T>::push(T const & value)->void { 
-  if (_count == _array_size) { 
-    _array_size *= 2; 
-    T * time = new T[_array_size]; 
-    copy(_array, _array_size + _array, time ); 
-    delete[] _array; 
-   _array = time; 
-    delete[] time; 
-  } 
-  _array[_count] = value; 
-  _count++; 
-} 
+  if (array_ == nullptr) {
+		array_ = new T[1];
+		array_[0] = val;
+		count_++; array_size_++;
+	}
+	else {
+		if (count_ == array_size_) {
+			array_size_ *= 2;
+			T *tmp = m_c(count_,array_size_,array_);
+			delete[] array_;
+			array_ = tmp;
+
+		}
+		array_[count_] = val;
+		count_++;
+	}
+}
 
 template <typename T> 
 auto stack<T>::top() const -> T& { 
@@ -73,8 +80,16 @@ auto stack<T>::top() const -> T& {
 } 
 
 
+
 template <typename T> 
 auto stack<T>::pop() -> void { 
   if (_count == 0) throw("stack's empty"); 
   return --_count; 
+}
+
+template <typename T>
+auto stack<T>::m_c(size_t count_m_c, size_t array_size_m_c, const T * tmp)->T* {
+	T *mass = new T[array_size_m_c];
+	copy(tmp, tmp + count_m_c, mass);
+	return mass;
 }
