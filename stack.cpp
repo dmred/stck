@@ -55,21 +55,22 @@ auto stack<T>::count() const noexcept->size_t { return _count; }
 
 template<typename T> 
 auto stack<T>::push(T const & value)->void { 
-  if (array_ == nullptr) {
-		array_ = new T[1];
-		array_[0] = val;
-		count_++; array_size_++;
+  if (_array == nullptr) {
+		_array = new T[1];
+		_array[0] = val;
+		_count++; 
+		_array_size++;
 	}
 	else {
-		if (count_ == array_size_) {
-			array_size_ *= 2;
-			T *tmp = m_c(count_,array_size_,array_);
-			delete[] array_;
-			array_ = tmp;
+		if (_count == _array_size) {
+			_array_size *= 2;
+			T *tmp = m_c(_count,_array_size,_array);
+			delete[] _array;
+			_array = tmp;
 
 		}
-		array_[count_] = val;
-		count_++;
+		_array[_count] = val;
+		_count++;
 	}
 }
 
