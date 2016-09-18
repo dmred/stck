@@ -1,10 +1,7 @@
-#include <stdio.h> 
-#include "stdafx.h" 
+
 #include <iostream> 
-#include <vector> 
 using namespace std;
-using std::size_t;
-using std::ostream;
+
 
 
 template <typename T>
@@ -23,6 +20,6 @@ private:
 	T * _array;
 	size_t _array_size;
 	size_t _count;
-	auto m_c(size_t count_m_ñ, size_t array_size_m_ñ, const T * tmp)->T*;
+	auto m_c(size_t count_m_Ã±, size_t array_size_m_Ã±, const T * tmp)->T*;
 };
 
