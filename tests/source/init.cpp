@@ -29,6 +29,6 @@ SCENARIO("operator=", "[op=]") {
 	a.push(1);
 	stack<int> b;
 	b = a;
-	REQUIRE(b == a);
+	REQUIRE(b.count() == a.count());
 }
 
