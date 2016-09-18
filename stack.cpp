@@ -80,8 +80,6 @@ auto stack<T>::top() const -> T& {
   return _array[_count]; 
 } 
 
-
-
 template <typename T> 
 auto stack<T>::pop() -> void { 
   if (_count == 0) throw("stack's empty"); 
