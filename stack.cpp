@@ -25,7 +25,7 @@ private:
 };
 
 template <typename T>
-stack<T>::stack() : _array(nullptr), _array_size(0), _count(0) {};
+stack<T>::stack() : _array(nullptr), _array_size(1), _count(0) {};
 
 template <typename T>
 stack<T>::~stack() {
