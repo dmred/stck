@@ -21,7 +21,7 @@ private:
 	T * _array;
 	size_t _array_size;
 	size_t _count;
-	auto m_c(size_t count_m_с, size_t array_size_m_с, const T * tmp)->T*;
+	auto copy_new(size_t count_m_с, size_t array_size_m_с, const T * tmp)->T*;
 };
 
 template <typename T>
@@ -57,7 +57,7 @@ template <typename T>
  auto stack<T>::push(T const &value)->void {
 	if (_count == _array_size) {
 			_array_size *= 2;
-			T *new_ar = m_c(_count,_array_size,_array);
+			T *new_ar = copy_new(_count,_array_size,_array);
 			delete[] _array;
 			_array = new_ar;
 		}
@@ -79,7 +79,7 @@ auto stack<T>::pop() -> T {
 }
 
 template <typename T>
-auto stack<T>::m_c(size_t count_m_c, size_t array_size_m_c, const T * tmp)->T* {
+auto stack<T>::copy_new(size_t count_m_c, size_t array_size_m_c, const T * tmp)->T* {
 	T *mass = new T[array_size_m_c];
 	copy(tmp, tmp + count_m_c, mass);
 	return mass;
