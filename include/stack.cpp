@@ -59,3 +59,18 @@ auto stack<T>::copy_new(size_t count_m_c, size_t array_size_m_c, const T * tmp)-
 	copy(tmp, tmp + count_m_c, mass);
 	return mass;
 }
+template<typename T>
+bool stack<T>::operator==(stack const & rhs) 
+{
+	if ((rhs._count != _count) || (rhs._array_size != _array_size)) {
+		return false;
+	}
+	else {
+		for (size_t i = 0; i < _count; i++) {
+			if (rhs._array[i] != _array[i]) {
+				return false;
+			}
+		}
+	}
+	return true;
+}
