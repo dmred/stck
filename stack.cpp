@@ -59,7 +59,7 @@ auto stack<T>::push(T const & value) -> void {
 	if (_count == _array_size) {
 		size_t size = _array_size * 2 + (_array_size == 0);
 		T * new_ar = copy_new(_count, size, _array);
-		delete[] array_;
+		delete[] _array;
 		_array = new_ar;
 		_array_size = size;
 	}
