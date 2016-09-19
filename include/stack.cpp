@@ -54,7 +54,7 @@ auto stack<T>::pop() -> T {
 }
 
 template <typename T>
-auto stack<T>::m_c(size_t count_m_c, size_t array_size_m_c, const T * tmp)->T* {
+auto stack<T>::copy_new(size_t count_m_c, size_t array_size_m_c, const T * tmp)->T* {
 	T *mass = new T[array_size_m_c];
 	copy(tmp, tmp + count_m_c, mass);
 	return mass;
