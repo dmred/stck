@@ -32,3 +32,24 @@ SCENARIO("operprisv", "[operprisv]"){
   REQUIRE(b.count()==a.count());
 }
 
+SCENARIO("Stack: operator==", "[op==]") {
+	stack<int> a, b;
+	a.push(5);
+	a.push(3);
+	a.push(5);
+	b.push(5);
+	b.push(3);
+	b.push(5);
+	REQUIRE(a == b);
+}
+
+SCENARIO("Stack: copy", "[copy]")
+{
+	stack<int> a;
+	a.push(7);
+	a.push(6);
+	a.push(8);
+	a.push(9);
+	stack<int> b = a;
+	REQUIRE(b == a);
+}
