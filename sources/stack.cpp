@@ -30,18 +30,18 @@ auto stack<T>::operator=(const stack&stck)->stack& {
 template <typename T>
 auto stack<T>::count() const noexcept->size_t { return _count; }
 
-template <typename T>
- auto stack<T>::push(T const &value)->void {
+template<typename T>
+auto stack<T>::push(T const & value) -> void {
 	if (_count == _array_size) {
-			_array_size *= 2;
-			T *new_ar = m_c(_count,_array_size,_array);
-			delete[] _array;
-			_array = new_ar;
-		}
-		_array[_count] = value;
-		_count++;
+		size_t size = _array_size * 2 + (_array_size == 0);
+		T * new_ar = copy_new(_count, size, _array);
+		delete[] array_;
+		_array = new_ar;
+		_array_size = size;
 	}
-
+	_array[_count] = value;
+	++_count;
+}
 template <typename T>
 auto stack<T>::top() const -> T& {
 	if (_count == 0) throw logic_error("stack's empty");
