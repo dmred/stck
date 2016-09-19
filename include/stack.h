@@ -15,6 +15,7 @@ public:
 	auto top() const->T&;
 	auto pop()->T;
 	auto operator=(stack const & stck)->stack &;
+	bool operator==(stack const & rhs);
 	~stack();
 private:
 	T * _array;
