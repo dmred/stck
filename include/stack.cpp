@@ -18,7 +18,7 @@ auto stack<T>::operator=(const stack&stck)->stack& {
 		delete[] _array;
 		_count = stck._count;
 		_array_size = stck._array_size;
-		_aray=copy_new(stck._count, stck._array_size, stck._array);
+		_array=copy_new(stck._count, stck._array_size, stck._array);
 	}
 	return *this;
 }
