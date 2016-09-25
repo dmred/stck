@@ -16,7 +16,7 @@ public:
 	auto pop()->T;/*strong*/
 	auto operator=(stack const & stck)->stack &;/*strong*/
 	bool operator==(stack const & rhs);/*strong*/
-	auto empty()->bool;
+	auto empty()->bool; /*noexcept*/
 	~stack();/*noexcept*/
 private:
 	T * _array;
