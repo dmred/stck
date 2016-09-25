@@ -72,3 +72,13 @@ bool stack<T>::operator==(stack const & rhs)
 	}
 	return true;
 }
+
+template<typename T>
+auto stack<T>::empty()->bool { 
+	if (this->count()) { 
+		return false;
+	}
+	else { 
+		return true; 
+	}
+}
