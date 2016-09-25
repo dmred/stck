@@ -8,9 +8,8 @@ stack<T>::~stack() {
 }
 
 template <typename T>
-stack<T>::stack(stack const &stck) : _array_size(stck._array_size), _count(stck._count) {
-	_array = new T[_array_size];
-	for (int i = 0; i < _count; i++) _array[i] = stck._array[i];
+stack<T>::stack(stack const &stck) : _array_size(stck._array_size), _count(stck._count), _array(copy_new(stck._count,stck._array_size,stck._array))  {
+
 }
 
 template <typename T>
@@ -19,8 +18,7 @@ auto stack<T>::operator=(const stack&stck)->stack& {
 		delete[] _array;
 		_count = stck._count;
 		_array_size = stck._array_size;
-		_array = new T[_array_size];
-		copy(stck._array, stck._array + _count, _array);
+		_aray=copy_new(stck._count, stck._array_size, stck._array);
 	}
 	return *this;
 }
